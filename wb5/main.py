@@ -4,6 +4,10 @@
   
   2. Print odd nodes
 	Write a method called print_odd_nodes that prints the nodes with odd-numbered indices (1, 3, 5, …, etc.)
+
+	3. Write a function that removes a node with a given value from a singly-linked list. It should return the head node. The function should take in two arguments:
+	head — the head of a linked list
+	value — a value that you want to remove
 """
 
 class Node:
@@ -32,7 +36,19 @@ class LinkedList:
 			index += 1
 			curr = curr.next
 
+	def removes(self, head, value):
+		if head.data == value:
+			return head.next
 
-	
+		curr = head.next
+		temp = head	
+		while curr:
+			if curr.data == value:
+				temp.next = curr.next	
+				break
+			curr = curr.next		
+			temp = temp.next	
 
-		  
+		return head
+
+
